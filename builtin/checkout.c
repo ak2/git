@@ -1205,6 +1205,10 @@ static int git_checkout_config(const char *var, const char *value,
 		handle_ignore_submodules_arg(&opts->diff_options, value);
 		return 0;
 	}
+	if (!strcmp(var, "checkout.autodetach")) {
+		opts->implicit_detach = git_config_bool(var, value);
+		return 0;
+	}
 	if (!strcmp(var, "checkout.guess")) {
 		opts->dwim_new_local_branch = git_config_bool(var, value);
 		return 0;

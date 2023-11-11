@@ -69,8 +69,22 @@ test_expect_success 'checkout ref^0 detaches' '
 	check_detached
 '
 
+test_expect_success 'checkout of tag with autoDetach=false fails' '
+	reset &&
+	test_config checkout.autoDetach false &&
+	test_must_fail git checkout tag &&
+	check_not_detached
+'
+
 test_expect_success 'checkout --detach detaches' '
 	reset &&
+	git checkout --detach branch &&
+	check_detached
+'
+
+test_expect_success 'checkout --detach with autoDetach=false detaches' '
+	reset &&
+	test_config checkout.autoDetach false &&
 	git checkout --detach branch &&
 	check_detached
 '

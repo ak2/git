@@ -17,6 +17,14 @@ and by linkgit:git-worktree[1] when `git worktree add` refers to a
 remote branch. This setting might be used for other checkout-like
 commands or functionality in the future.
 
+checkout.autoDetach::
+	If set to true, `git checkout` and `git switch` automatically detach
+	HEAD when switching to something other than a branch. If set to false,
+	they require the `--detach` option to detach HEAD.
++
+If this setting is not specified, `git checkout` defaults to automatic
+detaching, whereas `git switch` defaults to requiring `--detach`.
+
 checkout.guess::
 	Provides the default value for the `--guess` or `--no-guess`
 	option in `git checkout` and `git switch`. See

@@ -79,6 +79,9 @@ When the `<commit>` argument is a branch name, the `--detach` option can
 be used to detach `HEAD` at the tip of the branch (`git checkout
 <branch>` would check out that branch without detaching `HEAD`).
 +
+If the `checkout.autoDetach` config variable is set to false, the `--detach`
+option is required even if the `<commit>` argument is not a branch name.
++
 Omitting `<branch>` detaches `HEAD` at the tip of the current branch.
 
 'git checkout' [-f|--ours|--theirs|-m|--conflict=<style>] [<tree-ish>] [--] <pathspec>...::

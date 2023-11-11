@@ -83,6 +83,9 @@ $ git switch <new-branch>
 	Switch to a commit for inspection and discardable
 	experiments. See the "DETACHED HEAD" section in
 	linkgit:git-checkout[1] for details.
++
+If the `checkout.autoDetach` configuration variable is set to true,
+`--detach` can be omitted when the target is not a branch.
 
 --guess::
 --no-guess::

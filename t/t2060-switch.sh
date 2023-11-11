@@ -50,6 +50,13 @@ test_expect_success 'switch and detach current branch' '
 	test_must_fail git symbolic-ref HEAD
 '
 
+test_expect_success 'switch with checkout.autoDetach=true' '
+	test_when_finished git switch main &&
+	test_config checkout.autoDetach true &&
+	git switch main^{commit} &&
+	test_must_fail git symbolic-ref HEAD
+'
+
 test_expect_success 'switch and create branch' '
 	test_when_finished git switch main &&
 	git switch -c temp main^ &&
